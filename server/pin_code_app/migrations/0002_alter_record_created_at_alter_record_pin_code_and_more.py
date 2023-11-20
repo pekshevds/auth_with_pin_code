@@ -2,13 +2,13 @@
 
 from django.db import migrations, models
 import django.utils.timezone
-import pin_app.models
+import pin_code_app.models
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('pin_app', '0001_initial'),
+        ('pin_code_app', '0001_initial'),
     ]
 
     operations = [
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='record',
             name='pin_code',
-            field=models.CharField(default=pin_app.models.default_pin_code, max_length=6),
+            field=models.CharField(default=pin_code_app.models.default_pin_code, max_length=6),
         ),
         migrations.AlterField(
             model_name='record',

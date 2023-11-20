@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'auth_app.apps.AuthAppConfig',
-    'pin_app.apps.PinAppConfig',
+    'pin_code_app.apps.PinCodeAppConfig',
 ]
 
 MIDDLEWARE = [

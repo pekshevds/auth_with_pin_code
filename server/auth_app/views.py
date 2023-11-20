@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 from django.views import View
-from pin_app.services import (
+from pin_code_app.services import (
     add_record,
     not_used_users_record_by_pin_code,
     not_used_users_records,

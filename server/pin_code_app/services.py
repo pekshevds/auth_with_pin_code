@@ -1,6 +1,6 @@
 from django.utils import timezone
 from django.db.models.query import QuerySet
-from pin_app.models import Record
+from pin_code_app.models import Record
 from auth_app.models import CustomUser
 
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from pin_app.models import Record
+from pin_code_app.models import Record
 
 
 @admin.register(Record)
