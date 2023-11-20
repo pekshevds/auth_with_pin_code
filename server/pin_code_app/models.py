@@ -1,21 +1,10 @@
 from django.db import models
-from django.utils import timezone
-import datetime
 from auth_app.models import CustomUser
-from random import randrange
-
-
-def default_pin_code():
-    return str(randrange(100000, 999999))
-
-
-def default_date():
-    return timezone.now()
-
-
-def default_date_plus_five_min():
-    return timezone.now() + datetime.timedelta(minutes=5)
-    # datetime.timedelta(0,3)
+from pin_code_app.commons import (
+    default_date_plus_five_min,
+    default_date,
+    default_pin_code
+)
 
 
 class Record(models.Model):

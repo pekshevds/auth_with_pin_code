@@ -12,7 +12,7 @@ def not_used_users_records(user: CustomUser):
     )
 
 
-def not_used_users_record_by_pin_code(
+def users_record_by_pin_code(
         records: QuerySet,
         pin_code: str) -> [Record, None]:
 

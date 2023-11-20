@@ -1,10 +1,14 @@
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import (
+    authenticate,
+    login,
+    logout
+)
 from django.conf import settings
 from django.views import View
 from pin_code_app.services import (
     add_record,
-    not_used_users_record_by_pin_code,
+    users_record_by_pin_code,
     not_used_users_records,
     use_record
 )
@@ -20,34 +24,28 @@ class CustomSignUpView(View):
                 request=request,
                 template_name="auth_app/signin.html"
             )
-
         pin_code = request.POST.get("pin_code", "")
-
         records = not_used_users_records(user=user)
-        record = not_used_users_record_by_pin_code(
+        record = users_record_by_pin_code(
             records=records,
             pin_code=pin_code
         )
-
         if record is None:
             return render(
                 request=request,
                 template_name="auth_app/signin.html"
             )
-
         password = settings.AUTH_USER_DEFAULT_PASSWORD
         auth_user = authenticate(
             request=request,
             username=username,
             password=password
         )
-        print("auth_user=", auth_user)
         if auth_user is None:
             return render(
                 request=request,
                 template_name="auth_app/signin.html"
             )
-
         login(request, auth_user)
         use_record(record=record)
         return render(
@@ -73,7 +71,6 @@ class CustomSignInView(View):
                 request=request,
                 template_name="auth_app/signin.html"
             )
-
         add_record(user=user)
         return render(
             request=request,
